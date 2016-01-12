@@ -1,4 +1,4 @@
-FROM centos7
+FROM centos:7
 ##configure for containers
 RUN mkdir -p /selinux &&\
     echo 0 > /selinux/enforce &&\
