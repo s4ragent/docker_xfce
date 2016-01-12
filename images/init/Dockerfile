@@ -1,12 +1,7 @@
 FROM centos:7
 ##configure for containers
 RUN mkdir -p /selinux &&\
-    echo 0 > /selinux/enforce &&\
-    sed -i '/^session.*pam_loginuid.so/s/^session/# session/' /etc/pam.d/login &&\
-    sed -i '/^session.*pam_loginuid.so/s/^session/# session/' /etc/pam.d/sshd
-WORKDIR /lib64/security/
-RUN mv pam_loginuid.so pam_loginuid.so.disabled &&\
-    ln -s pam_permit.so pam_loginuid.so
+    echo 0 > /selinux/enforce
 RUN rm -f /etc/systemd/system/default.target &&\
     touch /etc/fstab &&\
     ln -s /dev/null /etc/systemd/system/udev.service &&\
