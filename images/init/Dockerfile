@@ -2,8 +2,6 @@ FROM centos:7
 ##configure for containers
 RUN mkdir -p /selinux &&\
     echo 0 > /selinux/enforce &&\
-    mv /usr/sbin/selinuxenabled /usr/sbin/selinuxenabled.lxcorig &&\
-    ln -s /bin/false /usr/sbin/selinuxenabled &&\
     sed -i '/^session.*pam_loginuid.so/s/^session/# session/' /etc/pam.d/login &&\
     sed -i '/^session.*pam_loginuid.so/s/^session/# session/' /etc/pam.d/sshd
 WORKDIR /lib64/security/
