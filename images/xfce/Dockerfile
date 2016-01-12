@@ -3,4 +3,5 @@ RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noar
 RUN yum -y update && yum -y clean all
 RUN yum -y groupinstall Xfce && yum -y install xrdp
 RUN chkconfig xrdp on
-ADD .Xclients /etc/X11/xinit/Xclients
+ADD Xclients /etc/X11/xinit/Xclients
+RUN chmod +x /etc/X11/xinit/Xclients
