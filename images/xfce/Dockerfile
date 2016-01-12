@@ -1,4 +1,5 @@
 FROM s4ragent/docker_xfce:init
+RUN yum -y install gnome-keyring
 RUN yum -y install epel-release && yum -y --enablerepo=epel groupinstall Xfce && yum -y install xrdp
 sudo systemctl enable xrdp
 #https://bugzilla.redhat.com/show_bug.cgi?id=1177202
